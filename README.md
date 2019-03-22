@@ -1,6 +1,7 @@
 
 # The author's words
-![图片测试](https://raw.githubusercontent.com/CrabappleProject/raspberry/97ac27acf1ee56f097d91d3f4c343e1ec458085d/extra/img/82becaef76094b3698c8af14aecc7cd98c109d80.jpg)
+![图片测试](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/1200px-Raspberry_Pi_Logo.svg.png
+)
 
 - This is a knowledge base about Internet Technology. You can learn more or less from it.
  It's called **raspberry** because the knowledge base is like a lot of small particles 
