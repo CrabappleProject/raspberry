@@ -14,5 +14,6 @@ SSL(Secure Sockets Layer 安全套接层),及其继任者传输层安全（Trans
 3.HTTP与HTTPS的端口不同，一个是80端口，一个是443端口；
 4.可以说HTTP与HTTPS是完全不同的连接方式，HTTPS集合了加密传输，身份认证，更加的安全。
 
-## 通信过程
+## 4.通信过程
 ![](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/341379-20160902110728652-1454806208.png)
+HTTPS就是一种HTTP的升级版.

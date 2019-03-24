@@ -2,6 +2,7 @@ package crabapple;
 
 public class Search {
 
+
     //二分查找
     public static boolean search(int[] arr, int key) {
         int low = 0;
