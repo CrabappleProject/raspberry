@@ -1,7 +1,7 @@
 # 前言
 数据库优化一方面是找出系统的瓶颈,提高MySQL数据库的整体性能,而另一方面需要合理的结构设计和参数调整,以提高用户的相应速度,同时还要尽可能的节约系统资源,以便让系统提供更大的负荷.
 ## 1. 优化一览图
-![优化一览图](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/{9EA4D98F-381E-43A3-BDBF-BFB278CF2523}.png.jpg)
+![优化一览图](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/MySQL优化图.jpg)
 ## 2. 优化
 笔者将优化分为了两大类,软优化和硬优化,软优化一般是操作数据库即可,而硬优化则是操作服务器硬件及参数设置.
 ### 2.1 软优化
