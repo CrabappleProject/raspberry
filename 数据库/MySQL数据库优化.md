@@ -1,7 +1,7 @@
 # 前言
 数据库优化一方面是找出系统的瓶颈,提高MySQL数据库的整体性能,而另一方面需要合理的结构设计和参数调整,以提高用户的相应速度,同时还要尽可能的节约系统资源,以便让系统提供更大的负荷.
 ## 1. 优化一览图
-![优化一览图](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/MySQL优化图.jpg)
+![优化一览图](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/数据库优化图.jpg)
 ## 2. 优化
 笔者将优化分为了两大类,软优化和硬优化,软优化一般是操作数据库即可,而硬优化则是操作服务器硬件及参数设置.
 ### 2.1 软优化
@@ -57,9 +57,11 @@ LOCAL|NO_WRITE_TO_BINLOG都是表示不写入日志.,优化表只对VARCHAR,BLOB
 传送门:[更多参数](https://www.mysql.com/cn/why-mysql/performance/index.html)
 #### 2.2.3 分库分表
 因为数据库压力过大，首先一个问题就是高峰期系统性能可能会降低，因为数据库负载过高对性能会有影响。另外一个，压力过大把你的数据库给搞挂了怎么办？所以此时你必须得对系统做分库分表 + 读写分离，也就是把一个库拆分为多个库，部署在多个数据库服务上，这时作为主库承载写入请求。然后每个主库都挂载至少一个从库，由从库来承载读请求。
-![结构图](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/6943526-acc5d17c41772cf1.jpg)
+![结构图](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/数据库负载均衡1.jpg)
+
 #### 2.2.4 缓存集群
 如果用户量越来越大，此时你可以不停的加机器，比如说系统层面不停加机器，就可以承载更高的并发请求。然后数据库层面如果写入并发越来越高，就扩容加数据库服务器，通过分库分表是可以支持扩容机器的，如果数据库层面的读并发越来越高，就扩容加更多的从库。但是这里有一个很大的问题：数据库其实本身不是用来承载高并发请求的，所以通常来说，数据库单机每秒承载的并发就在几千的数量级，而且数据库使用的机器都是比较高配置，比较昂贵的机器，成本很高。如果你就是简单的不停的加机器，其实是不对的。所以在高并发架构里通常都有缓存这个环节，缓存系统的设计就是为了承载高并发而生。所以单机承载的并发量都在每秒几万，甚至每秒数十万，对高并发的承载能力比数据库系统要高出一到两个数量级。所以你完全可以根据系统的业务特性，对那种写少读多的请求，引入缓存集群。具体来说，就是在写数据库的时候同时写一份数据到缓存集群里，然后用缓存集群来承载大部分的读请求。这样的话，通过缓存集群，就可以用更少的机器资源承载更高的并发。
-![结构图](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/6943526-a6c2f372c815513b.jpg)
+![结构图](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/数据库负载均衡2.jpg)
+
 ### 结语
 一个完整而复杂的高并发系统架构中，一定会包含：各种复杂的自研基础架构系统。各种精妙的架构设计.因此一篇小文顶多具有抛砖引玉的效果,但是数据库优化的思想差不多就这些了.
