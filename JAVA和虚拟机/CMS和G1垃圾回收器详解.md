@@ -7,7 +7,9 @@ Serial,ParNew,Parallel Scavenge,Serial Old,Parallel Old,CMS和G1收集器.
 
 ## 1. 五种基本垃圾回收器概览
 ![](https://raw.githubusercontent.com/CrabappleProject/raspberry/master/extra/img/五种垃圾收集器.jpg)
-## 1. CMS收集器
+传送门[五种收集器介绍清晰的文章](https://blog.csdn.net/u011080472/article/details/51324422)
+
+## 2. CMS收集器
 CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器。它而非常符合在注重用户体验的应用上使用。
 从名字中的Mark Sweep这两个词可以看出，CMS收集器是一种 “标记-清除”算法实现的，它的运作过程相比于前面几种垃圾收集器来说更加复杂一些。整个过程分为四个步骤：
 - 初始标记： 暂停所有的其他线程，并记录下直接与root相连的对象，速度很快 ；
@@ -20,7 +22,7 @@ CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时�
 无法处理浮动垃圾；
 它使用的回收算法-“标记-清除”算法会导致收集结束时会有大量空间碎片产生。
 
-## 2. G1收集器
+## 3. G1收集器
 上一代的垃圾收集器(串行serial, 并行parallel, 以及CMS)都把堆内存划分为固定大小的三个部分: 年轻代(young generation), 年老代(old generation), 以及持久代(permanent generation).
 ![G1](https://upload-images.jianshu.io/upload_images/8160928-75cf67b5b2138aba)
 
