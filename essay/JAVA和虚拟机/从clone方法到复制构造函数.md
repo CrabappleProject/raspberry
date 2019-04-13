@@ -1,3 +1,4 @@
+java,clone
 ## 前言
 在Java API中,可以通过实现Cloneable接口并重写clone方法实现克隆,但Java设计者否定了使用clone创建新对象的方法.
 ### 1. clone方法实现对象的复制
